@@ -13,7 +13,7 @@ while True:
     barcodes[barcode] += 1
 
 # open up our file
-with open("inventory.txt", "a") as outputfile:
+with open("inventorycount.txt", "a") as outputfile:
     # iterate over barcode dict
     for barcode, count in barcodes.items():
         # write line for each of these
