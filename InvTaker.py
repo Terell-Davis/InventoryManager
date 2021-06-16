@@ -1,6 +1,5 @@
-# I can not take credit for this, Thanks goes to
-# Brian C. Lindner (https://github.com/bclindner)
 barcodes = {}
+section = str(input("Enter name of Section: "))
 
 while True:
     barcode = str(input("Scan barcode: "))
@@ -13,7 +12,7 @@ while True:
     barcodes[barcode] += 1
 
 # open up our file
-with open("inventorycount.txt", "a") as outputfile:
+with open(section + ".txt", "a") as outputfile:
     # iterate over barcode dict
     for barcode, count in barcodes.items():
         # write line for each of these

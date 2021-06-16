@@ -1,0 +1,2 @@
+python InvTaker.py
+pause
