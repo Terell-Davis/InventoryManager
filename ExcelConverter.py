@@ -1,10 +1,12 @@
 import xlsxwriter
 
+#To keep track of each line
 count = 0
 # Create a workbook and add a worksheet.
 workbook = xlsxwriter.Workbook('Inventory.xlsx')
 worksheet = workbook.add_worksheet()
 
+# Heading for excel files
 title = ['Description', 'UPC', 'Store', 'Retail On Hand', 'On Hand', 'Class', 'Dept', 'Div', 'Cost On Hand',
          'Current Cost', 'Retail Each', 'Vendor']
 
@@ -17,8 +19,9 @@ worksheet.set_row(0, 20)
 row = 1
 col = 1
 
-with open("output.txt", encoding='latin1') as input:
-    for line in input:
+# Opens output file from ArcImport.py and writes to excel file
+with open("output.txt", encoding='latin1') as inventory:
+    for line in inventory:
         count += 1
         if not count % 2 == 0:
             print(line.strip())
@@ -35,6 +38,7 @@ with open("output.txt", encoding='latin1') as input:
         row += 1
         col += 1
 
+# Set Dimensions
 worksheet.set_column('A:A', 30)
 worksheet.set_column('B:B', 15)
 worksheet.set_column('D:D', 15)
