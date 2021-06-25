@@ -5,7 +5,7 @@ mydb = mysql.connector.connect(
         host="localhost",
         user="root", # input("Username: "),
         password=getpass("Password: "),
-        database="test",
+        database="onhandupc",
 )
 
 sku = "NULL"; desc = "NULL"; cost = 00.00; retail = 00.00; avail = 0
@@ -48,7 +48,7 @@ with open("output.txt", encoding='latin1') as input:
                     "vendor": 'null'
                 }
 
-        sql = "INSERT INTO test.item(sku, `desc`, cost, retail, available, class, dept, store, vendor) " \
+        sql = "INSERT INTO onhandupc.item(sku, `desc`, cost, retail, available, class, dept, store, vendor) " \
               f'VALUES({val["sku"]}, "{val["desc"]}", {val["cost"]}, {val["retail"]}, {val["available"]}, {val["class"]}, {val["dept"]}, {val["store"]}, "{val["vendor"]}")'
         print(sql)
         cursor.execute(sql)

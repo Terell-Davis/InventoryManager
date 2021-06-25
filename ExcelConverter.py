@@ -1,10 +1,11 @@
 import xlsxwriter
+from datetime import date
 
-#To keep track of each line
 count = 0
 # Create a workbook and add a worksheet.
 workbook = xlsxwriter.Workbook('Inventory.xlsx')
-worksheet = workbook.add_worksheet()
+worksheet = workbook.add_worksheet('Store Inv.')
+worksheet2 = workbook.add_worksheet(date.today().strftime("%m-%d-%Y"))
 
 # Heading for excel files
 title = ['Description', 'UPC', 'Store', 'Retail On Hand', 'On Hand', 'Class', 'Dept', 'Div', 'Cost On Hand',
