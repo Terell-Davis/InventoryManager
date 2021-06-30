@@ -1,9 +1,9 @@
 import re
 import xlsxwriter
-
-# Removes usless text Arc exports
+from datetime import date
+# Removes useless text Arc exports
 remove = ['GEORGIA', 'REPORT', 'SYSTEM', '005', 'FROZEN', 'SKU#',
-          '<-----------UNITS----------->', 'STORE','CLASS','BATCH', '<-------------UNITS------------->']
+          '<-----------UNITS----------->', 'STORE','BATCH', '<-------------UNITS------------->']
 
 # Removes '-' from the top and bottom of each page
 regex = "-{20,}"
@@ -17,8 +17,9 @@ with open("DiffQSYSPRT.txt", encoding='latin1') as arcinventory, open("diffoutpu
             output.write(line)
 arcinventory.close()
 
-workbook = xlsxwriter.Workbook('Diff.xlsx')
-worksheet = workbook.add_worksheet('kms')
+date = date.today()
+workbook = xlsxwriter.Workbook('Arc Over-Short Report ' + str(date) + '.xlsx')
+worksheet = workbook.add_worksheet('All Items')
 
 headings = ['Store', 'SKU', 'Description',
             'Frozen Unit(s)', 'Counted Unit(s)', 'Over Unit(s)', 'Short Unit(s)',
